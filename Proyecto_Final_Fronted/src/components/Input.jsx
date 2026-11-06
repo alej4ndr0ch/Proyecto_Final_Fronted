@@ -26,6 +26,7 @@ export const Input = ({
             <div>
                 {textArea ? (
                     <textarea
+                        className="auth-input"
                         type={type}
                         value={value}
                         onChange={handleValueChange}
@@ -35,6 +36,7 @@ export const Input = ({
                     />
                 ) : (
                     <input
+                        className="auth-input"
                         type={type}
                         value={value}
                         onChange={handleValueChange}

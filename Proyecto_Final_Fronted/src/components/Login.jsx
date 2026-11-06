@@ -66,12 +66,19 @@ export const Login = () => {
         !formState.email.isValid ||
         !formState.password.isValid;
 
-    const primaryOrange = 'bg-orange-500 hover:bg-orange-600 transition duration-300';
+    const primaryOrange = 'bg-green-500 hover:bg-green-600 transition duration-300';
     const whiteCard = 'bg-white shadow-2xl';
 
     return (
         <div className="min-h-screen flex items-center justify-center bg-green-500">
             <div className={`w-full max-w-md p-8 rounded-xl ${whiteCard}`}>
+                <div className="flex justify-center mb-6">
+                    <img
+                        src="/src/assets/logo_uvg.png"
+                        alt="Logo_UVG"
+                        className="h-40 w-40 object-contain"
+                    />
+                </div>
                 <form className="space-y-6">
                     <Input
                         field='email'
@@ -100,7 +107,7 @@ export const Login = () => {
                     className={`
                             w-full py-3 mt-4 text-white font-bold rounded-lg 
                             ${primaryOrange} 
-                            focus:outline-none focus:ring-4 focus:ring-orange-300 
+                            focus:outline-none focus:ring-4 focus:ring-green-300 
                             disabled:opacity-50 disabled:cursor-not-allowed
                             transform active:scale-[0.98] transition duration-150 ease-in-out
                         `}

@@ -46,7 +46,7 @@ export const SidebarAdmin = () => {
           />
         </svg>
       ),
-      path: "/",
+      path: "/Homepage",
     },
     {
       title: "Admin",
@@ -57,67 +57,11 @@ export const SidebarAdmin = () => {
         </svg>
       ),
       submenu: [
-        { title: "Agregar Usuarios", path: "/userRegister" },
-      ],
-    },
-    {
-      title: "Usuarios",
-      icon: (
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M12 12C14.7614 12 17 9.76142 17 7C17 4.23858 14.7614 2 12 2C9.23858 2 7 4.23858 7 7C7 9.76142 9.23858 12 12 12Z" stroke="currentColor" stroke-width="2" />
-          <path d="M20.5901 22C20.5901 18.13 16.7402 15 12.0002 15C7.26015 15 3.41016 18.13 3.41016 22" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
-        </svg>
-      ),
-      submenu: [
-        { title: "Usuarios Pendientes", path: "/userPending" },
-        { title: "Usuarios Activos", path: "/userActive" },
-      ],
-    },
-    {
-      title: "Productos",
-      icon: (
-        <svg
-          className="w-6 h-6"
-          fill="none"
-          stroke="currentColor"
-          viewBox="0 0 24 24"
-        >
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth={2}
-            d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z"
-          />
-        </svg>
-      ),
-      submenu: [
-        { title: "Agregar producto", path: "/ProductForm" },
-        { title: "Productos", path: "/ProductList" },
-      ],
-    },
-    {
-      title: "Reportes",
-      icon: (
-        <svg
-          className="w-6 h-6"
-          fill="none"
-          stroke="currentColor"
-          viewBox="0 0 24 24"
-        >
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth={2}
-            d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z"
-          />
-        </svg>
-      ),
-      submenu: [
-        { title: "Reportes", path: "/LapsedList" },
+        { title: "Horas Beca Pendientes", path: "/HoursBecaPending" },
       ],
     },
    {
-      title: "Sucursal",
+      title: "Admin Horas beca",
       icon: (
         <svg
           className="w-6 h-6"
@@ -139,7 +83,6 @@ export const SidebarAdmin = () => {
     },
   ];
 
-  // Efecto para cerrar submenús al cambiar de ruta
   useEffect(() => {
     setActiveSubmenu(null);
   }, [location.pathname]);
@@ -147,7 +90,7 @@ export const SidebarAdmin = () => {
   const toggleSidebar = () => {
     setIsTransitioning(true);
     setIsOpen(!isOpen);
-    setTimeout(() => setIsTransitioning(false), 300); // Duración de la transición
+    setTimeout(() => setIsTransitioning(false), 300); 
   };
 
   const toggleSubmenu = (index) => {
@@ -157,7 +100,6 @@ export const SidebarAdmin = () => {
   useEffect(() => {
     const handleResize = () => {
       setIsMobile(window.innerWidth < 768);
-      // En móvil, forzar el cierre del sidebar si no está hover
       if (window.innerWidth < 768 && !isHovered) {
         setIsOpen(false);
       }
@@ -167,13 +109,12 @@ export const SidebarAdmin = () => {
     return () => window.removeEventListener('resize', handleResize);
   }, [isHovered]);
 
-  // Efecto para cerrar el sidebar después de un tiempo sin hover (solo en desktop)
   useEffect(() => {
     let timer;
     if (!isMobile && isOpen && !isHovered) {
       timer = setTimeout(() => {
         setIsOpen(false);
-      }, 1000); // 1 segundo después de salir del sidebar
+      }, 1000); 
     }
     return () => clearTimeout(timer);
   }, [isHovered, isOpen, isMobile]);
@@ -189,7 +130,6 @@ export const SidebarAdmin = () => {
       }}
       onMouseLeave={() => setIsHovered(false)}
     >
-      {/* Logo y botón de toggle */}
       <div className="p-4 flex items-center justify-between border-b border-orange-600">
         {isOpen && (
           <div className="flex items-center">

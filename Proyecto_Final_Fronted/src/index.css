@@ -1,0 +1,19 @@
+@import "tailwindcss";
+@config "../tailwind.config.js";
+
+.auth-input {
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 400px;
+  padding: 12px 14px;
+  border: 2px solid #263244;
+  border-radius: 8px;
+  background: white;
+  transition: border-color 250ms ease, box-shadow 250ms ease;
+}
+
+.auth-input:focus {
+  outline: none;
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 3px rgb(59 130 246 / 20%);
+}

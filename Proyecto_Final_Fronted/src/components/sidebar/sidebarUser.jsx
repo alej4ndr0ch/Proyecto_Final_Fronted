@@ -15,7 +15,7 @@ export const SidebarUsers = () => {
     href: "/profile",
     label: "Perfil",
     icon: <img
-      src="../../assets/LITTLE-CAESARS-LOGO.png"
+      src="../../assets/UVG.png"
       alt="Avatar"
       className="h-6 w-6 rounded-full"
     />
@@ -30,7 +30,7 @@ export const SidebarUsers = () => {
   // Menú principal
   const menuItems = [
     {
-      title: "Homepage",
+      title: "Home",
       icon: (
         <svg
           className="w-6 h-6"
@@ -46,10 +46,10 @@ export const SidebarUsers = () => {
           />
         </svg>
       ),
-      path: "/",
+      path: "/Homepage",
     },
     {
-      title: "Productos",
+      title: "Oportunidades",
       icon: (
         <svg
           className="w-6 h-6"
@@ -68,7 +68,7 @@ export const SidebarUsers = () => {
       path: "/ProductList",
     },
     {
-      title: "Lapsed",
+      title: "Administracion de horas",
       icon: (
         <svg
           className="w-6 h-6"
@@ -84,7 +84,7 @@ export const SidebarUsers = () => {
           />
         </svg>
       ),
-      path: "/LapsedBranch",
+      path: "/hoursBecaDone",
     },
   ];
 
@@ -129,7 +129,7 @@ export const SidebarUsers = () => {
 
   return (
     <div
-      className={`bg-orange-600 text-white h-screen fixed flex flex-col z-50 shadow-xl transition-all duration-300 ease-in-out ${
+      className={`bg-green-600 text-white h-screen fixed flex flex-col z-50 shadow-xl transition-all duration-300 ease-in-out ${
         isOpen ? "w-64" : "w-20"
       }`}
       onMouseEnter={() => {
@@ -139,25 +139,25 @@ export const SidebarUsers = () => {
       onMouseLeave={() => setIsHovered(false)}
     >
       {/* Logo y botón de toggle */}
-      <div className="p-4 flex items-center justify-between border-b border-orange-600">
+      <div className="p-4 flex items-center justify-between border-b border-green-600">
         {isOpen && (
           <div className="flex items-center">
-            <div className="bg-white p-1 rounded-lg mr-3 flex items-center justify-center">
+            <div className="bg-white p-2 rounded-lg mr-4 flex items-center justify-center">
               <img
-                src="/src/assets/LITTLE-CAESARS-LOGO.png"
-                alt="Logo Banco Valmeria"
-                className="w-8 h-8 object-contain" // Ajusta el tamaño según necesites
+                src="../../assets/logo_uvg.png"
+                alt="Logo_UVG"
+                className="w-10 h-10 object-contain" // Ajusta el tamaño según necesites
               />
             </div>
             <span className="text-xl font-bold whitespace-nowrap">
-              Lapsed Caesar
+              Horas Beca
             </span>
           </div>
         )}
 
         <button
           onClick={toggleSidebar}
-          className="p-2 rounded-full hover:bg-blue-800 transition"
+          className="p-2 rounded-full hover:bg-white-800 transition"
         >
           {isOpen ? (
             <svg
@@ -203,8 +203,8 @@ export const SidebarUsers = () => {
                     item.submenu.some((sub) =>
                       location.pathname.includes(sub.path)
                     ))
-                    ? "bg-orange-500"
-                    : "hover:bg-orange-700"
+                    ? "bg-greem-500"
+                    : "hover:bg-green-700"
                 }`}
                 onMouseEnter={() => setHoveredItem(index)}
                 onMouseLeave={() => setHoveredItem(null)}
@@ -260,12 +260,12 @@ export const SidebarUsers = () => {
 
                 {/* Efecto de hover para el tooltip cuando el sidebar está cerrado */}
                 {!isOpen && hoveredItem === index && (
-                  <div className="absolute left-full ml-2 px-3 py-2 bg-blue-800 rounded-lg shadow-lg z-50 whitespace-nowrap transition-opacity">
+                  <div className="absolute left-full ml-2 px-3 py-2 bg-white-800 rounded-lg shadow-lg z-50 whitespace-nowrap transition-opacity">
                     {item.title}
                     {item.submenu && (
-                      <div className="mt-1 ml-2 border-l-2 border-blue-600 pl-2">
+                      <div className="mt-1 ml-2 border-l-2 border-white-600 pl-2">
                         {item.submenu.map((sub, i) => (
-                          <div key={i} className="py-1 text-sm text-blue-200">
+                          <div key={i} className="py-1 text-sm text-white-200">
                             {sub.title}
                           </div>
                         ))}
@@ -292,8 +292,8 @@ export const SidebarUsers = () => {
                           onClick={() => navigate(subItem.path)}
                           className={`w-full flex items-center pl-12 pr-3 py-2 text-sm rounded-lg transition-colors ${
                             location.pathname.includes(subItem.path)
-                              ? "bg-orange-600 text-white"
-                              : "hover:bg-orange-800 text-blue-200"
+                              ? "bg-green-600 text-white"
+                              : "hover:bg-green-800 text-blue-200"
                           }`}
                         >
                           {subItem.title}
